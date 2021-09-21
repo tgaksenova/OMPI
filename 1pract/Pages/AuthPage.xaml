@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,8 +24,8 @@
         <TextBox x:Name="TextBoxLogin" Grid.Column="2" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,163,0,0" Grid.RowSpan="2"/>
         <Label Content="Пароль" VerticalAlignment="Top" Height="25" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
         <PasswordBox x:Name="PasswordBox" Grid.Column="2" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Grid.Row="1"/>
-        <Button Click="ButtonRegistration_OnClick" Content="Вход" Grid.Column="2" Margin="0,60,0,0" VerticalAlignment="Top" Height="30" Grid.Row="1"/>
-        <Button Content="Регистрация" Grid.Column="2" Margin="0,95,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Grid.RowSpan="2" Click="Button_Click"/>
+        <Button Click="ButtonRegistration_OnClick" Content="Вход" Grid.Column="2" Margin="0,0,271,0" VerticalAlignment="Top" Height="36" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Content="Регистрация" Grid.Column="2" Margin="0,59,271,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Click="Button_Click" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Page>

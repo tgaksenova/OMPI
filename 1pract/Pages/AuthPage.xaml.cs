@@ -34,7 +34,7 @@ namespace _1pract.Pages
             }
             var db = new Entities();
                 var user = db.User
-                    .AsNotracking()
+                    .AsNoTracking()
                     .FirstOrDefault(u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
 
                 if (user == null)

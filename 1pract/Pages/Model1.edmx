@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SkladModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="int" Nullable="false" />
+          <Property Name="material_name" Type="varchar(max)" />
+          <Property Name="ved_material" Type="varchar(max)" />
+          <Property Name="price" Type="int" />
+          <Property Name="nomer_doc_postup" Type="int" />
+          <Property Name="nomer_doc_sps" Type="int" />
+          <Property Name="nomer_doc_per" Type="int" />
+        </EntityType>
+        <EntityType Name="Peredacha_material_proithvodstvu">
+          <Key>
+            <PropertyRef Name="№dokymenta" />
+          </Key>
+          <Property Name="date_peredache" Type="date" />
+          <Property Name="№dokymenta" Type="int" Nullable="false" />
+          <Property Name="kolichestvo" Type="int" />
+        </EntityType>
+        <EntityType Name="Postuplenie">
+          <Key>
+            <PropertyRef Name="№documenta" />
+          </Key>
+          <Property Name="Data_postupleniy" Type="date" />
+          <Property Name="№documenta" Type="int" Nullable="false" />
+          <Property Name="Svediniy_o_postavshike" Type="varchar(max)" />
+          <Property Name="kolichestvo_material" Type="int" />
+          <Property Name="price" Type="int" />
+        </EntityType>
+        <EntityType Name="Spisanie_materialov">
+          <Key>
+            <PropertyRef Name="№_document" />
+          </Key>
+          <Property Name="date_spisanie" Type="date" />
+          <Property Name="№_document" Type="int" Nullable="false" />
+          <Property Name="kolvo" Type="int" />
+          <Property Name="summa" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Material_Peredacha_material_proithvodstvu">
+          <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Peredacha_material_proithvodstvu">
+              <PropertyRef Name="№dokymenta" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Postuplenie">
+          <End Role="Postuplenie" Type="Self.Postuplenie" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postuplenie">
+              <PropertyRef Name="№documenta" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_postup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Spisanie_materialov">
+          <End Role="Spisanie_materialov" Type="Self.Spisanie_materialov" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spisanie_materialov">
+              <PropertyRef Name="№_document" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_sps" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SkladModelContainer">
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Peredacha_material_proithvodstvu" EntityType="Self.Peredacha_material_proithvodstvu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Postuplenie" EntityType="Self.Postuplenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spisanie_materialov" EntityType="Self.Spisanie_materialov" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Material_Peredacha_material_proithvodstvu" Association="Self.FK_Material_Peredacha_material_proithvodstvu">
+            <End Role="Peredacha_material_proithvodstvu" EntitySet="Peredacha_material_proithvodstvu" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Postuplenie" Association="Self.FK_Material_Postuplenie">
+            <End Role="Postuplenie" EntitySet="Postuplenie" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Spisanie_materialov" Association="Self.FK_Material_Spisanie_materialov">
+            <End Role="Spisanie_materialov" EntitySet="Spisanie_materialov" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SkladModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="Int32" Nullable="false" />
+          <Property Name="material_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ved_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="nomer_doc_postup" Type="Int32" />
+          <Property Name="nomer_doc_sps" Type="Int32" />
+          <Property Name="nomer_doc_per" Type="Int32" />
+          <NavigationProperty Name="Peredacha_material_proithvodstvu" Relationship="Self.FK_Material_Peredacha_material_proithvodstvu" FromRole="Material" ToRole="Peredacha_material_proithvodstvu" />
+          <NavigationProperty Name="Postuplenie" Relationship="Self.FK_Material_Postuplenie" FromRole="Material" ToRole="Postuplenie" />
+          <NavigationProperty Name="Spisanie_materialov" Relationship="Self.FK_Material_Spisanie_materialov" FromRole="Material" ToRole="Spisanie_materialov" />
+        </EntityType>
+        <EntityType Name="Peredacha_material_proithvodstvu">
+          <Key>
+            <PropertyRef Name="C_dokymenta" />
+          </Key>
+          <Property Name="date_peredache" Type="DateTime" Precision="0" />
+          <Property Name="C_dokymenta" Type="Int32" Nullable="false" />
+          <Property Name="kolichestvo" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_Peredacha_material_proithvodstvu" FromRole="Peredacha_material_proithvodstvu" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Postuplenie">
+          <Key>
+            <PropertyRef Name="C_documenta" />
+          </Key>
+          <Property Name="Data_postupleniy" Type="DateTime" Precision="0" />
+          <Property Name="C_documenta" Type="Int32" Nullable="false" />
+          <Property Name="Svediniy_o_postavshike" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="kolichestvo_material" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_Postuplenie" FromRole="Postuplenie" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Spisanie_materialov">
+          <Key>
+            <PropertyRef Name="C__document" />
+          </Key>
+          <Property Name="date_spisanie" Type="DateTime" Precision="0" />
+          <Property Name="C__document" Type="Int32" Nullable="false" />
+          <Property Name="kolvo" Type="Int32" />
+          <Property Name="summa" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="Self.FK_Material_Spisanie_materialov" FromRole="Spisanie_materialov" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Material_Peredacha_material_proithvodstvu">
+          <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Peredacha_material_proithvodstvu">
+              <PropertyRef Name="C_dokymenta" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_per" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Postuplenie">
+          <End Role="Postuplenie" Type="Self.Postuplenie" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Postuplenie">
+              <PropertyRef Name="C_documenta" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_postup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_Spisanie_materialov">
+          <End Role="Spisanie_materialov" Type="Self.Spisanie_materialov" Multiplicity="0..1" />
+          <End Role="Material" Type="Self.Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spisanie_materialov">
+              <PropertyRef Name="C__document" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="nomer_doc_sps" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Material" EntityType="Self.Material" />
+          <EntitySet Name="Peredacha_material_proithvodstvu" EntityType="Self.Peredacha_material_proithvodstvu" />
+          <EntitySet Name="Postuplenie" EntityType="Self.Postuplenie" />
+          <EntitySet Name="Spisanie_materialov" EntityType="Self.Spisanie_materialov" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Material_Peredacha_material_proithvodstvu" Association="Self.FK_Material_Peredacha_material_proithvodstvu">
+            <End Role="Peredacha_material_proithvodstvu" EntitySet="Peredacha_material_proithvodstvu" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Postuplenie" Association="Self.FK_Material_Postuplenie">
+            <End Role="Postuplenie" EntitySet="Postuplenie" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_Spisanie_materialov" Association="Self.FK_Material_Spisanie_materialov">
+            <End Role="Spisanie_materialov" EntitySet="Spisanie_materialov" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SkladModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="SkladModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="material_name" ColumnName="material_name" />
+                <ScalarProperty Name="ved_material" ColumnName="ved_material" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="nomer_doc_postup" ColumnName="nomer_doc_postup" />
+                <ScalarProperty Name="nomer_doc_sps" ColumnName="nomer_doc_sps" />
+                <ScalarProperty Name="nomer_doc_per" ColumnName="nomer_doc_per" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Peredacha_material_proithvodstvu">
+            <EntityTypeMapping TypeName="SkladModel.Peredacha_material_proithvodstvu">
+              <MappingFragment StoreEntitySet="Peredacha_material_proithvodstvu">
+                <ScalarProperty Name="date_peredache" ColumnName="date_peredache" />
+                <ScalarProperty Name="C_dokymenta" ColumnName="№dokymenta" />
+                <ScalarProperty Name="kolichestvo" ColumnName="kolichestvo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Postuplenie">
+            <EntityTypeMapping TypeName="SkladModel.Postuplenie">
+              <MappingFragment StoreEntitySet="Postuplenie">
+                <ScalarProperty Name="Data_postupleniy" ColumnName="Data_postupleniy" />
+                <ScalarProperty Name="C_documenta" ColumnName="№documenta" />
+                <ScalarProperty Name="Svediniy_o_postavshike" ColumnName="Svediniy_o_postavshike" />
+                <ScalarProperty Name="kolichestvo_material" ColumnName="kolichestvo_material" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spisanie_materialov">
+            <EntityTypeMapping TypeName="SkladModel.Spisanie_materialov">
+              <MappingFragment StoreEntitySet="Spisanie_materialov">
+                <ScalarProperty Name="date_spisanie" ColumnName="date_spisanie" />
+                <ScalarProperty Name="C__document" ColumnName="№_document" />
+                <ScalarProperty Name="kolvo" ColumnName="kolvo" />
+                <ScalarProperty Name="summa" ColumnName="summa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SkladModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="SkladModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

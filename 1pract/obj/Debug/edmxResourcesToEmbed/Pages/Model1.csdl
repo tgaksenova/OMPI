@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SkladModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="id_material" />
+    </Key>
+    <Property Name="id_material" Type="Int32" Nullable="false" />
+    <Property Name="material_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ved_material" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="nomer_doc_postup" Type="Int32" />
+    <Property Name="nomer_doc_sps" Type="Int32" />
+    <Property Name="nomer_doc_per" Type="Int32" />
+    <NavigationProperty Name="Peredacha_material_proithvodstvu" Relationship="Self.FK_Material_Peredacha_material_proithvodstvu" FromRole="Material" ToRole="Peredacha_material_proithvodstvu" />
+    <NavigationProperty Name="Postuplenie" Relationship="Self.FK_Material_Postuplenie" FromRole="Material" ToRole="Postuplenie" />
+    <NavigationProperty Name="Spisanie_materialov" Relationship="Self.FK_Material_Spisanie_materialov" FromRole="Material" ToRole="Spisanie_materialov" />
+  </EntityType>
+  <EntityType Name="Peredacha_material_proithvodstvu">
+    <Key>
+      <PropertyRef Name="C_dokymenta" />
+    </Key>
+    <Property Name="date_peredache" Type="DateTime" Precision="0" />
+    <Property Name="C_dokymenta" Type="Int32" Nullable="false" />
+    <Property Name="kolichestvo" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Peredacha_material_proithvodstvu" FromRole="Peredacha_material_proithvodstvu" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Postuplenie">
+    <Key>
+      <PropertyRef Name="C_documenta" />
+    </Key>
+    <Property Name="Data_postupleniy" Type="DateTime" Precision="0" />
+    <Property Name="C_documenta" Type="Int32" Nullable="false" />
+    <Property Name="Svediniy_o_postavshike" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="kolichestvo_material" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Postuplenie" FromRole="Postuplenie" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Spisanie_materialov">
+    <Key>
+      <PropertyRef Name="C__document" />
+    </Key>
+    <Property Name="date_spisanie" Type="DateTime" Precision="0" />
+    <Property Name="C__document" Type="Int32" Nullable="false" />
+    <Property Name="kolvo" Type="Int32" />
+    <Property Name="summa" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Spisanie_materialov" FromRole="Spisanie_materialov" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Material_Peredacha_material_proithvodstvu">
+    <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Peredacha_material_proithvodstvu">
+        <PropertyRef Name="C_dokymenta" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_per" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Postuplenie">
+    <End Role="Postuplenie" Type="Self.Postuplenie" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postuplenie">
+        <PropertyRef Name="C_documenta" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_postup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Spisanie_materialov">
+    <End Role="Spisanie_materialov" Type="Self.Spisanie_materialov" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spisanie_materialov">
+        <PropertyRef Name="C__document" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_sps" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <EntitySet Name="Peredacha_material_proithvodstvu" EntityType="Self.Peredacha_material_proithvodstvu" />
+    <EntitySet Name="Postuplenie" EntityType="Self.Postuplenie" />
+    <EntitySet Name="Spisanie_materialov" EntityType="Self.Spisanie_materialov" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Material_Peredacha_material_proithvodstvu" Association="Self.FK_Material_Peredacha_material_proithvodstvu">
+      <End Role="Peredacha_material_proithvodstvu" EntitySet="Peredacha_material_proithvodstvu" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Postuplenie" Association="Self.FK_Material_Postuplenie">
+      <End Role="Postuplenie" EntitySet="Postuplenie" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Spisanie_materialov" Association="Self.FK_Material_Spisanie_materialov">
+      <End Role="Spisanie_materialov" EntitySet="Spisanie_materialov" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
