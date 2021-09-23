@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1pract"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="703.87" Width="1284.827">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -13,9 +13,9 @@
             <RowDefinition/>
             <RowDefinition Height="42"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="#FFF4F4F5" Grid.Row="3" StrokeThickness="0"/>
+        <Rectangle Fill="#FFF4F4F5" Grid.Row="2" StrokeThickness="0"/>
         <Button Content="Назад" x:Name="ButtonBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,12,0,0" Click="ButtonBack_Click"/>
-        <Frame x:Name="MainFrame" Source="Pages/AuthPage.xaml" Navigated="MainFrame_OnNavigated" HorizontalAlignment="Left" Height="315" VerticalAlignment="Top" Width="753" Margin="10,10,0,0" Grid.Row="1"/>
+        <Frame x:Name="MainFrame" Source="Pages/AuthPage.xaml" Navigated="MainFrame_OnNavigated" HorizontalAlignment="Left" Height="558" VerticalAlignment="Top" Width="1248" Margin="10,10,0,0" Grid.Row="1"/>
     </Grid>
 
 

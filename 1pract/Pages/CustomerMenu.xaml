@@ -9,9 +9,9 @@
       Title="CustomerMenu">
 
     <Grid>
-        <Button Content="Переход 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="387,134,0,0" Click="Button_Click"/>
-        <Button Content="Переход 2" HorizontalAlignment="Left" Margin="387,187,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Переход 3" HorizontalAlignment="Left" Margin="387,239,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Переход 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="137" Margin="387,134,0,0" Click="Button_Click"/>
+        <Button Content="Переход 2" HorizontalAlignment="Left" Margin="387,187,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click_1"/>
+        <Button Content="Переход 3" HorizontalAlignment="Left" Margin="387,239,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click_2"/>
 
     </Grid>
 </Page>

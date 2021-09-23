@@ -26,6 +26,7 @@
         <PasswordBox x:Name="PasswordBox" Grid.Column="2" Margin="0,20,0,0" VerticalAlignment="Top" Height="25" Grid.Row="1"/>
         <Button Click="ButtonRegistration_OnClick" Content="Вход" Grid.Column="2" Margin="0,0,271,0" VerticalAlignment="Top" Height="36" Grid.Row="2" Grid.ColumnSpan="2"/>
         <Button Content="Регистрация" Grid.Column="2" Margin="0,59,271,0" Grid.Row="2" VerticalAlignment="Top" Height="40" Click="Button_Click" Grid.ColumnSpan="2"/>
+        <Button Content="Калькулятор" HorizontalAlignment="Left" Margin="112,0,0,0" VerticalAlignment="Top" Width="124" Grid.Row="2" Height="43" Click="Button_Click_1"/>
 
     </Grid>
 </Page>
