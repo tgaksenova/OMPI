@@ -79,8 +79,8 @@ namespace _1pract.Pages
                     textBlock.Text = "";
                 }
 
-                else if (s =="x2")
-                { 
+                else if (s == "x2")
+                {
 
                     textBlock.Text = Math.Pow(Int32.Parse(leftop), 2).ToString();
 
@@ -89,7 +89,7 @@ namespace _1pract.Pages
                 else if (s == "10x")
                 {
 
-                    textBlock.Text = Math.Pow(10,Int32.Parse(leftop)).ToString();
+                    textBlock.Text = Math.Pow(10, Int32.Parse(leftop)).ToString();
 
                 }
                 else if (s == "|x|")
@@ -140,6 +140,18 @@ namespace _1pract.Pages
                     rightop = (num1 / num2).ToString();
                     break;
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            // определяем путь к файлу ресурсов
+            var uri = new Uri("DictionaryCalc.xaml", UriKind.Relative);
+            // загружаем словарь ресурсов
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            // очищаем коллекцию ресурсов приложения
+            Application.Current.Resources.Clear();
+            // добавляем загруженный словарь ресурсов
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
     }
 

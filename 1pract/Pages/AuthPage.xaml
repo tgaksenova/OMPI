@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:_1pract.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Авторизация">
+      Title="Авторизация" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
