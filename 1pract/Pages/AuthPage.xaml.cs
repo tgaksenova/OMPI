@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace _1pract.Pages
-{
+{ 
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
     /// </summary>

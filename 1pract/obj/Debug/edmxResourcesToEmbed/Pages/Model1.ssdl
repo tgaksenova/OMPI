@@ -57,7 +57,7 @@
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="Role" Type="nvarchar" MaxLength="50" />
     <Property Name="FIO" Type="nvarchar" MaxLength="50" />
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Association Name="FK_Material_Peredacha_material_proithvodstvu">
     <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />
