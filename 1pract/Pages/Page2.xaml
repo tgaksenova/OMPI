@@ -22,10 +22,19 @@ Title="Page2">
             <RowDefinition Height="349"/>
             <RowDefinition Height="70*"/>
         </Grid.RowDefinitions>
-        <Label Content="Введите логин" HorizontalAlignment="Left" Margin="0,15,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
-        <Label Content="Введите пароль" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
-        <Label Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="0,120,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
-        <Label Content="Выберите роль" HorizontalAlignment="Left" Margin="0,183,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
+        <Label Content="Введите логин" HorizontalAlignment="Left" Margin="9,27,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
+        <Label Content="Введите пароль" HorizontalAlignment="Left" Margin="120,76,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.ColumnSpan="2"/>
+        <Label Content="Подтвердите пароль" HorizontalAlignment="Left" Margin="120,132,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.ColumnSpan="2"/>
+        <Label Content="Выберите роль" HorizontalAlignment="Left" Margin="119,195,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="2.423"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.948"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Label Content="Введите ФИО" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" Grid.Row="1" Width="164" RenderTransformOrigin="0.766,2.4" Grid.Column="1"/>
         <TextBox x:Name="Login" Grid.Column="3" HorizontalAlignment="Left" Margin="0,27,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
         <TextBox x:Name="FIO" Grid.Column="3" HorizontalAlignment="Left" Margin="0,235,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>

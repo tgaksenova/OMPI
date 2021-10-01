@@ -41,7 +41,7 @@ namespace _1pract.Pages {
     public partial class Page2 : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 30 "..\..\..\Pages\Page2.xaml"
+        #line 39 "..\..\..\Pages\Page2.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox Login;
         
@@ -49,7 +49,7 @@ namespace _1pract.Pages {
         #line hidden
         
         
-        #line 31 "..\..\..\Pages\Page2.xaml"
+        #line 40 "..\..\..\Pages\Page2.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox FIO;
         
@@ -57,7 +57,7 @@ namespace _1pract.Pages {
         #line hidden
         
         
-        #line 32 "..\..\..\Pages\Page2.xaml"
+        #line 41 "..\..\..\Pages\Page2.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox Role;
         
@@ -65,7 +65,7 @@ namespace _1pract.Pages {
         #line hidden
         
         
-        #line 38 "..\..\..\Pages\Page2.xaml"
+        #line 47 "..\..\..\Pages\Page2.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox Passwords;
         
@@ -73,7 +73,7 @@ namespace _1pract.Pages {
         #line hidden
         
         
-        #line 39 "..\..\..\Pages\Page2.xaml"
+        #line 48 "..\..\..\Pages\Page2.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox RepPass;
         
@@ -121,7 +121,7 @@ namespace _1pract.Pages {
             return;
             case 4:
             
-            #line 36 "..\..\..\Pages\Page2.xaml"
+            #line 45 "..\..\..\Pages\Page2.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
@@ -129,7 +129,7 @@ namespace _1pract.Pages {
             return;
             case 5:
             
-            #line 37 "..\..\..\Pages\Page2.xaml"
+            #line 46 "..\..\..\Pages\Page2.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click_1);
             
             #line default

@@ -104,6 +104,14 @@ namespace _1pract {
             #line default
             #line hidden
             return;
+            case 3:
+            
+            #line 19 "..\..\MainWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
+            
+            #line default
+            #line hidden
+            return;
             }
             this._contentLoaded = true;
         }
