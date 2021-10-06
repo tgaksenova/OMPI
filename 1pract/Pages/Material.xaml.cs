@@ -16,28 +16,31 @@ using System.Windows.Shapes;
 namespace _1pract.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для CustomerMenu.xaml
+    /// Логика взаимодействия для Material.xaml
     /// </summary>
-    public partial class CustomerMenu : Page
+    public partial class Material : Page
     {
-        public CustomerMenu()
+        public Material()
         {
             InitializeComponent();
+            DataGridMaterial.ItemsSource = Entities.GetContext().Material.ToList();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Material());
+
+            NavigationService?.Navigate(new AddEditPage());
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonDel_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new postup());
+
+        }
+        private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
+        {
+
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new Spisanie());
-        }
+
     }
 }

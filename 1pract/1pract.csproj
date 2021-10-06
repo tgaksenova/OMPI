@@ -84,6 +84,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditpostup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditspis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -96,12 +108,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Material.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\postup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Spisanie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddEditPage.xaml.cs">
+      <DependentUpon>AddEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditpostup.xaml.cs">
+      <DependentUpon>AddEditpostup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditspis.xaml.cs">
+      <DependentUpon>AddEditspis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
@@ -113,6 +146,9 @@
     </Compile>
     <Compile Include="Pages\Material.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Material.xaml.cs">
+      <DependentUpon>Material.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -135,8 +171,14 @@
     <Compile Include="Pages\Peredacha_material_proithvodstvu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\postup.xaml.cs">
+      <DependentUpon>postup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Postuplenie.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Spisanie.xaml.cs">
+      <DependentUpon>Spisanie.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Spisanie_materialov.cs">
       <DependentUpon>Model1.tt</DependentUpon>

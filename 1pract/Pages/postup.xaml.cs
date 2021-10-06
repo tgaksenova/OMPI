@@ -16,28 +16,27 @@ using System.Windows.Shapes;
 namespace _1pract.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для CustomerMenu.xaml
+    /// Логика взаимодействия для postup.xaml
     /// </summary>
-    public partial class CustomerMenu : Page
+    public partial class postup : Page
     {
-        public CustomerMenu()
+        public postup()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Material());
+            NavigationService?.Navigate(new AddEditpostup()); 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonDel_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new postup());
-        }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        }
+        private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new Spisanie());
+
         }
     }
 }
