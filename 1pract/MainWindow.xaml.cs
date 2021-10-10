@@ -53,69 +53,81 @@ namespace _1pract
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            void Export() { 
-                string path = "export.txt";
-                StreamWriter sw = new StreamWriter(path);
-                string IDline = String.Join(":", db.Users.Select(x => x.ID));
+            Export();
+
+
+        }
+        void Export()
+        {
+            string path = "export.txt";
+            StreamWriter sw = new StreamWriter(path);
+            using (var db = new Entities())
+            {
+                var user = db.User
+                      .AsNoTracking()
+                      .FirstOrDefault();
+
+
+                string IDline = String.Join(":", db.User.Select(x => x.ID));
                 sw.WriteLine(IDline);
-                string FIOline = String.Join(":", db.Users.Select(x => x.FIO));
+                string FIOline = String.Join(":", db.User.Select(x => x.FIO));
                 sw.WriteLine(FIOline);
-                string Roleline = String.Join(":", db.Users.Select(x => x.Role));
+                string Roleline = String.Join(":", db.User.Select(x => x.Role));
                 sw.WriteLine(Roleline);
-                string Passline = String.Join(":", db.Users.Select(x => x.Password));
+                string Passline = String.Join(":", db.User.Select(x => x.Password));
                 sw.WriteLine(Passline);
-                string Logline = String.Join(":", db.Users.Select(x => x.Login));
+                string Logline = String.Join(":", db.User.Select(x => x.Login));
                 sw.WriteLine(Logline);
-               
+
                 Process.Start("notepad.exe", path);
                 StreamWriter SW;
                 SaveFileDialog SFD = new SaveFileDialog();
                 SFD.FileName = "MyTXT";
                 SFD.Filter = "TXT (*.txt)|*.txt|RTF (*.rtf)|*.rtf";
                 sw.Close();
-
-
-
-            };
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            void Import() {
-
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.ShowDialog();
-                if (ofd.FileName != "") // проверка на выбор файла
-                {
-                }
-                else MessageBox.Show("Файл для импорта не выбран!");
-
-                StreamReader sr = new StreamReader(ofd.FileName); // открываем файл
-                while (!sr.EndOfStream) // перебираем строки, пока они не закончены
-                {
-                    string[] lines = new string[5];// массив данных 
-                    for (int i = 0; i < 5; i++) // читаем 5 строк 
-                    {
-                        string line = sr.ReadLine(); // читаем строку  
-                        string[] data = line.Split(':');
-                        line = ""; // обнуляем переменную    
-                        if (data.Length >= 2) // проверяем на целостность данных  
-                        {
-                            for (int j = 1; j < data.Length; j++) // складываем данные      
-                            {
-                                line += data[j]; // собираем строку  
-                            }
-                        }
-                        lines[i] = line; // записываем значения в массив 
-                    }
-                    // выводим данные 
-                    MessageBox.Show("Данные в файле: \nID: " + lines[0] + "\nФИО: " + lines[1] + "\nЛогин: " + lines[2] + "\nПароль: " + lines[3] + "\nРоль: " + lines[4]);
-                }
+            Import();
 
 
 
 
+        }
+        void Import()
+        {
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            if (ofd.FileName != "") // проверка на выбор файла
+            {
             }
+            else MessageBox.Show("Файл для импорта не выбран!");
+
+            StreamReader sr = new StreamReader(ofd.FileName); // открываем файл
+            while (!sr.EndOfStream) // перебираем строки, пока они не закончены
+            {
+                string[] lines = new string[5];// массив данных 
+                for (int i = 0; i < 5; i++) // читаем 5 строк 
+                {
+                    string line = sr.ReadLine(); // читаем строку  
+                    string[] data = line.Split(':');
+                    line = ""; // обнуляем переменную    
+                    if (data.Length >= 2) // проверяем на целостность данных  
+                    {
+                        for (int j = 1; j < data.Length; j++) // складываем данные      
+                        {
+                            line += data[j]; // собираем строку  
+                        }
+                    }
+                    lines[i] = line; // записываем значения в массив 
+                }
+                // выводим данные 
+                MessageBox.Show("Данные в файле: \nID: " + lines[0] + "\nФИО: " + lines[1] + "\nЛогин: " + lines[2] + "\nПароль: " + lines[3] + "\nРоль: " + lines[4]);
+            }
+
         }
     }
 }

@@ -31,5 +31,14 @@ namespace _1pract.Pages
         public virtual DbSet<Spisanie_materialov> Spisanie_materialov { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+
+
+        private static Entities _context;
+        public static Entities GetContext()
+        {
+            if (_context == null)
+                _context = new Entities();
+            return _context;
+        }
     }
 }
