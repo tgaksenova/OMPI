@@ -1,0 +1,5 @@
+1:2:3:4
+Pimenov D.M.:Omarova M.A.:Пименов Денис Максимович:Омарова Мадинат Ахмедовна
+m:m:Бухгалтер:Директор
+Denis05:Madinka:Denisloh05:Madinat05
+Deniska:Omarchik:Pimenov:Madinat

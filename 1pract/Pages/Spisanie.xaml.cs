@@ -23,6 +23,7 @@ namespace _1pract.Pages
         public Spisanie()
         {
             InitializeComponent();
+            DataGridMaterial.ItemsSource = Entities.GetContext().Spisanie_materialov.ToList();
         }
 
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)

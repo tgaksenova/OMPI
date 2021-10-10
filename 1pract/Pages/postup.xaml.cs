@@ -23,7 +23,9 @@ namespace _1pract.Pages
         public postup()
         {
             InitializeComponent();
+            DataGridMaterial.ItemsSource = Entities.GetContext().Postuplenie.ToList();
         }
+
 
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
