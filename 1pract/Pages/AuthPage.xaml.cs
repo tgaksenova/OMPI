@@ -20,27 +20,32 @@ namespace _1pract.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
+
+        private void ButtonRegistration_OnClick(object sender, RoutedEventArgs e)
+        {
+            Auth(TextBoxLogin.Text, PasswordBox.Password);
+        }
         public AuthPage()
         {
             InitializeComponent();
         }
 
-       private void ButtonRegistration_OnClick(object sender, RoutedEventArgs e)
+        public bool Auth(string login, string password)
         {
-            if (string.IsNullOrEmpty(TextBoxLogin.Text) || string.IsNullOrEmpty(PasswordBox.Password))
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Введите логин и пароль!");
-                return;
+                return false;
             }
             var db = new Entities();
                 var user = db.User
                     .AsNoTracking()
-                    .FirstOrDefault(u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
+                    .FirstOrDefault(u => u.Login == login && u.Password == password);
 
                 if (user == null)
                 {
                     MessageBox.Show("Пользователь с такими данными не найден!");
-                    return;
+                    return false;
 
                 }
 
@@ -56,7 +61,7 @@ namespace _1pract.Pages
                     break;
             }
 
-            db.Dispose();
+          return true;
             
 
         }

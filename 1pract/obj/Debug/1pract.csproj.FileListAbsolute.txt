@@ -225,3 +225,16 @@ C:\Users\65\Desktop\5 пр\1pract\obj\Debug\_1pract.Properties.Resources.resourc
 C:\Users\65\Desktop\5 пр\1pract\obj\Debug\1pract.csproj.GenerateResource.cache
 C:\Users\65\Desktop\5 пр\1pract\obj\Debug\1pract.csproj.CoreCompileInputs.cache
 C:\Users\65\Desktop\5 пр\1pract\obj\Debug\1pract.csproj.CopyComplete
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\DictionaryCalc.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditPage.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditpostup.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditspis.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\Material.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\postup.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\Spisanie.g.cs
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditPage.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditpostup.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\AddEditspis.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\Material.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\postup.baml
+C:\Users\P-DK\OneDrive\Рабочий стол\Новая папка (3)\OMPI\1pract\obj\Debug\Pages\Spisanie.baml
