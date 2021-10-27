@@ -4,13 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c4a4b2255b9142b6babfc8e51199b7f1" Name="Diagram1">
+      <Diagram DiagramId="45b8ffe20a874a98ae388d13be7c7791" Name="Diagram1">
         <EntityTypeShape EntityType="SkladModel.Material" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SkladModel.Peredacha_material_proithvodstvu" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SkladModel.Postuplenie" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SkladModel.Spisanie_materialov" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SkladModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SkladModel.User" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SkladModel.User" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="SkladModel.FK_Material_Peredacha_material_proithvodstvu" ManuallyRouted="false" />
         <AssociationConnector Association="SkladModel.FK_Material_Postuplenie" ManuallyRouted="false" />
         <AssociationConnector Association="SkladModel.FK_Material_Spisanie_materialov" ManuallyRouted="false" />

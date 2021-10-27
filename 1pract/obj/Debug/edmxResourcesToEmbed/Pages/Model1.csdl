@@ -64,6 +64,7 @@
     <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Material_Peredacha_material_proithvodstvu">
     <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />

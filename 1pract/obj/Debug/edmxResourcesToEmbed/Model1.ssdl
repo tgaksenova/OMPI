@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище SkladModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="id_material" />
+    </Key>
+    <Property Name="id_material" Type="int" Nullable="false" />
+    <Property Name="material_name" Type="varchar(max)" />
+    <Property Name="ved_material" Type="varchar(max)" />
+    <Property Name="price" Type="int" />
+    <Property Name="nomer_doc_postup" Type="int" />
+    <Property Name="nomer_doc_sps" Type="int" />
+    <Property Name="nomer_doc_per" Type="int" />
+    <Property Name="Photo" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Peredacha_material_proithvodstvu">
+    <Key>
+      <PropertyRef Name="№dokymenta" />
+    </Key>
+    <Property Name="date_peredache" Type="date" />
+    <Property Name="№dokymenta" Type="int" Nullable="false" />
+    <Property Name="kolichestvo" Type="int" />
+  </EntityType>
+  <EntityType Name="Postuplenie">
+    <Key>
+      <PropertyRef Name="№documenta" />
+    </Key>
+    <Property Name="Data_postupleniy" Type="date" />
+    <Property Name="№documenta" Type="int" Nullable="false" />
+    <Property Name="Svediniy_o_postavshike" Type="varchar(max)" />
+    <Property Name="kolichestvo_material" Type="int" />
+    <Property Name="price" Type="int" />
+  </EntityType>
+  <EntityType Name="Spisanie_materialov">
+    <Key>
+      <PropertyRef Name="№_document" />
+    </Key>
+    <Property Name="date_spisanie" Type="date" />
+    <Property Name="№_document" Type="int" Nullable="false" />
+    <Property Name="kolvo" Type="int" />
+    <Property Name="summa" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_Material_Peredacha_material_proithvodstvu">
+    <End Role="Peredacha_material_proithvodstvu" Type="Self.Peredacha_material_proithvodstvu" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Peredacha_material_proithvodstvu">
+        <PropertyRef Name="№dokymenta" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_per" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Postuplenie">
+    <End Role="Postuplenie" Type="Self.Postuplenie" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postuplenie">
+        <PropertyRef Name="№documenta" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_postup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Spisanie_materialov">
+    <End Role="Spisanie_materialov" Type="Self.Spisanie_materialov" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spisanie_materialov">
+        <PropertyRef Name="№_document" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="nomer_doc_sps" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище SkladModelContainer">
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Peredacha_material_proithvodstvu" EntityType="Self.Peredacha_material_proithvodstvu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Postuplenie" EntityType="Self.Postuplenie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Spisanie_materialov" EntityType="Self.Spisanie_materialov" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Material_Peredacha_material_proithvodstvu" Association="Self.FK_Material_Peredacha_material_proithvodstvu">
+      <End Role="Peredacha_material_proithvodstvu" EntitySet="Peredacha_material_proithvodstvu" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Postuplenie" Association="Self.FK_Material_Postuplenie">
+      <End Role="Postuplenie" EntitySet="Postuplenie" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Spisanie_materialov" Association="Self.FK_Material_Spisanie_materialov">
+      <End Role="Spisanie_materialov" EntitySet="Spisanie_materialov" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

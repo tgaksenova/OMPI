@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _1pract.Pages
+namespace _1pract
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Peredacha_material_proithvodstvu
+    public partial class Spisanie_materialov
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Peredacha_material_proithvodstvu()
+        public Spisanie_materialov()
         {
             this.Material = new HashSet<Material>();
         }
     
-        public Nullable<System.DateTime> date_peredache { get; set; }
-        public int C_dokymenta { get; set; }
-        public Nullable<int> kolichestvo { get; set; }
+        public Nullable<System.DateTime> date_spisanie { get; set; }
+        public int C__document { get; set; }
+        public Nullable<int> kolvo { get; set; }
+        public Nullable<int> summa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Material> Material { get; set; }

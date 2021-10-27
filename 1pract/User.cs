@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _1pract.Pages
+namespace _1pract
 {
     using System;
     using System.Collections.Generic;
@@ -19,5 +19,6 @@ namespace _1pract.Pages
         public string Role { get; set; }
         public string FIO { get; set; }
         public int ID { get; set; }
+        public string Photo { get; set; }
     }
 }

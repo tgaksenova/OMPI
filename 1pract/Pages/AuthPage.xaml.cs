@@ -54,7 +54,7 @@ namespace _1pract.Pages
                 switch (user.Role)
                 {
                     case "Бухгалтер":
-                        NavigationService?.Navigate(new CustomerMenu());
+                        NavigationService?.Navigate(new CustomerMenu1());
                     break;
                 case "Директор":
                     NavigationService?.Navigate(new CustomerMenu());

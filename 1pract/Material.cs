@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _1pract.Pages
+namespace _1pract
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace _1pract.Pages
         public Nullable<int> nomer_doc_postup { get; set; }
         public Nullable<int> nomer_doc_sps { get; set; }
         public Nullable<int> nomer_doc_per { get; set; }
+        public string Photo { get; set; }
     
         public virtual Peredacha_material_proithvodstvu Peredacha_material_proithvodstvu { get; set; }
         public virtual Postuplenie Postuplenie { get; set; }

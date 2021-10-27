@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SkladModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="SkladModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="material_name" ColumnName="material_name" />
+          <ScalarProperty Name="ved_material" ColumnName="ved_material" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="nomer_doc_postup" ColumnName="nomer_doc_postup" />
+          <ScalarProperty Name="nomer_doc_sps" ColumnName="nomer_doc_sps" />
+          <ScalarProperty Name="nomer_doc_per" ColumnName="nomer_doc_per" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Peredacha_material_proithvodstvu">
+      <EntityTypeMapping TypeName="SkladModel.Peredacha_material_proithvodstvu">
+        <MappingFragment StoreEntitySet="Peredacha_material_proithvodstvu">
+          <ScalarProperty Name="date_peredache" ColumnName="date_peredache" />
+          <ScalarProperty Name="C_dokymenta" ColumnName="№dokymenta" />
+          <ScalarProperty Name="kolichestvo" ColumnName="kolichestvo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postuplenie">
+      <EntityTypeMapping TypeName="SkladModel.Postuplenie">
+        <MappingFragment StoreEntitySet="Postuplenie">
+          <ScalarProperty Name="Data_postupleniy" ColumnName="Data_postupleniy" />
+          <ScalarProperty Name="C_documenta" ColumnName="№documenta" />
+          <ScalarProperty Name="Svediniy_o_postavshike" ColumnName="Svediniy_o_postavshike" />
+          <ScalarProperty Name="kolichestvo_material" ColumnName="kolichestvo_material" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spisanie_materialov">
+      <EntityTypeMapping TypeName="SkladModel.Spisanie_materialov">
+        <MappingFragment StoreEntitySet="Spisanie_materialov">
+          <ScalarProperty Name="date_spisanie" ColumnName="date_spisanie" />
+          <ScalarProperty Name="C__document" ColumnName="№_document" />
+          <ScalarProperty Name="kolvo" ColumnName="kolvo" />
+          <ScalarProperty Name="summa" ColumnName="summa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="SkladModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

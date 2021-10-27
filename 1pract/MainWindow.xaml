@@ -9,15 +9,15 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="42"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition Height="42"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FFF4F4F5" Grid.Row="2" StrokeThickness="0"/>
         <Button Content="Назад" x:Name="ButtonBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,12,0,0" Click="ButtonBack_Click"/>
-        <Frame x:Name="MainFrame" Source="Pages/AuthPage.xaml" Navigated="MainFrame_OnNavigated" HorizontalAlignment="Left" Height="558" VerticalAlignment="Top" Width="1248" Margin="10,10,0,0" Grid.Row="1"/>
-        <Button Content="Экспорт" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" Width="148" Grid.RowSpan="2" Click="Button_Click"/>
-        <Button Content="Импорт" HorizontalAlignment="Left" Margin="897,10,0,0" VerticalAlignment="Top" Width="150" Grid.RowSpan="2" Click="Button_Click_1"/>
+        <Frame x:Name="MainFrame" Source="Pages/AuthPage.xaml" Navigated="MainFrame_OnNavigated" HorizontalAlignment="Left" Height="533" VerticalAlignment="Top" Width="1224" Margin="10,23,0,0" Grid.Row="1"/>
+        <Button Content="Экспорт" HorizontalAlignment="Left" Margin="1086,10,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click"/>
+        <Button Content="Импорт" HorizontalAlignment="Left" Margin="897,10,0,0" VerticalAlignment="Top" Width="150" Click="Button_Click_1"/>
     </Grid>
 
 

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _1pract.Pages
+namespace _1pract
 {
     using System;
     using System.Data.Entity;
@@ -29,9 +29,7 @@ namespace _1pract.Pages
         public virtual DbSet<Peredacha_material_proithvodstvu> Peredacha_material_proithvodstvu { get; set; }
         public virtual DbSet<Postuplenie> Postuplenie { get; set; }
         public virtual DbSet<Spisanie_materialov> Spisanie_materialov { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
-
         private static Entities _context;
         public static Entities GetContext()
         {
